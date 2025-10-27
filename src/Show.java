@@ -56,24 +56,24 @@ public class Show {
             System.out.println("Замена не удалась: Один из актеров (старый или новый) равен null.");
         } else if (listOfActors.contains(newActor)) {
             System.out.println("Замена не удалась: новый актер уже есть в списке.");
-        }
-
-        int index = -1;
-        for (int i = 0; i < listOfActors.size(); i++) {
-            if (listOfActors.get(i).equals(oldActor)) {
-                index = i;
-                break;
-            }
-        }
-
-        if (index == -1) {
-            System.out.println("Замена не удалась: Актер " + oldActor + " не найден в списке.");
         } else {
-            listOfActors.remove(index);
-            listOfActors.add(index, newActor);
-            System.out.println("Актер успешно заменен.");
-            System.out.println("Теперь " + newActor +
-                    "играет вместо " + oldActor + ".");
+            int index = -1;
+            for (int i = 0; i < listOfActors.size(); i++) {
+                if (listOfActors.get(i).equals(oldActor)) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == -1) {
+                System.out.println("Замена не удалась: Актер " + oldActor + " не найден в списке.");
+            } else {
+                listOfActors.remove(index);
+                listOfActors.add(index, newActor);
+                System.out.println("Актер успешно заменен.");
+                System.out.println("Теперь " + newActor +
+                        "играет вместо " + oldActor + ".");
+            }
         }
     }
 }
