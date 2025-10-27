@@ -2,10 +2,10 @@ import java.util.Objects;
 
 public class Person {
 
-    private String name;
-    private String surname;
-    private int height;
-    private Gender gender;
+    protected String name;
+    protected String surname;
+    protected int height;
+    protected Gender gender;
 
     public Person(String name, String surname, int height, Gender gender) {
         this.name = name;

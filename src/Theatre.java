@@ -21,11 +21,13 @@ public class Theatre {
         ArrayList<Actor> actorsBallet = new ArrayList<>();
         actorsBallet.add(actor1);
         actorsBallet.add(actor2);
+        Person musicAuthor1 = new Person("Владимир", "Пупкин", 185, Gender.MALE);
+        Person choreographer1 = new Person("Наталья", "Пехота", 162, Gender.FEMALE);
 
-        Ballet ballet = new Ballet("Щелкунчик",30, director2, actorsBallet, "Владимир Пупкин",
+        Ballet ballet = new Ballet("Щелкунчик",30, director2, actorsBallet, musicAuthor1,
                 "На новогодний праздник в дом Штальбаумов собираются гости. Среди них и Дроссельмейер," +
                         " крестный отец Мари и Фрица — детей Штальбаумов. Он приготовил им чудесный подарок — забавного Щелкунчика.",
-                "Наталья Пехота");
+                choreographer1);
 
         System.out.println("Список актеров балета:");
         ballet.printActors();
@@ -33,8 +35,9 @@ public class Theatre {
         ArrayList<Actor> actorsOpera = new ArrayList<>();
         actorsOpera.add(actor2);
         actorsOpera.add(actor3);
+        Person musicAuthor2 = new Person("Клавдия", "Мирошниченко", 155, Gender.FEMALE);
 
-        Opera opera = new Opera("Аида", 45, director2, actorsOpera, "Клавдия Мирошниченко",
+        Opera opera = new Opera("Аида", 45, director2, actorsOpera, musicAuthor2,
                 "Радамес одерживает победу над эфиопами и со своим войском возвращается в Фивы, ведя за " +
                         "собой пленных. Аида с ужасом узнаёт среди них своего отца — эфиопского царя Амонасро, который" +
                         " скрывает своё настоящее положение.", 15);
@@ -42,9 +45,9 @@ public class Theatre {
         System.out.println("Список актеров оперы:");
         opera.printActors();
 
-        show.changeActors(actor1, actor2);
+        show.changeActor(actor1, actor2);
 
-        opera.changeActors(actor1, actor3);
+        opera.changeActor(actor1, actor3);
 
         opera.printLibretto();
         ballet.printLibretto();
