@@ -45,9 +45,9 @@ public class Theatre {
         System.out.println("Список актеров оперы:");
         opera.printActors();
 
-        show.changeActor(actor1, actor2);
+        show.changeActor(actor2, "Лебедев");
 
-        opera.changeActor(actor1, actor3);
+        opera.changeActor(actor3, "Петров");
 
         opera.printLibretto();
         ballet.printLibretto();

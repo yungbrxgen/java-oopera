@@ -51,29 +51,41 @@ public class Show {
         }
     }
 
-    public void changeActor(Actor oldActor, Actor newActor) {
-        if (oldActor == null || newActor == null) {
-            System.out.println("Замена не удалась: Один из актеров (старый или новый) равен null.");
-        } else if (listOfActors.contains(newActor)) {
-            System.out.println("Замена не удалась: новый актер уже есть в списке.");
-        } else {
+    public void changeActor(Actor newActor, String oldActorSurname) {
+        if (newActor == null) {
+            System.out.println("Замена не удалась: Новый актер актер равен null.");
+            return;
+        }
+            if (oldActorSurname == null || oldActorSurname.isEmpty()) {
+                System.out.println("Замена не удалась: Фамилия старого актера не указана.");
+                return;
+            }
+
+            if (listOfActors.contains(newActor)) {
+                System.out.println("Замена не удалась: Новый актер " + newActor.getSurname() +
+                        " уже есть в списке.");
+                return;
+            }
+
             int index = -1;
+            Actor actorToChange = null;
             for (int i = 0; i < listOfActors.size(); i++) {
-                if (listOfActors.get(i).equals(oldActor)) {
+                Actor currentActor = listOfActors.get(i);
+                if (currentActor.getSurname().equals(oldActorSurname)) {
                     index = i;
+                    actorToChange = currentActor;
                     break;
                 }
             }
 
             if (index == -1) {
-                System.out.println("Замена не удалась: Актер " + oldActor + " не найден в списке.");
-            } else {
+                System.out.println("Замена не удалась: Актер c фамилией " + oldActorSurname + " не найден в списке.");
+                return;
+            }
                 listOfActors.remove(index);
                 listOfActors.add(index, newActor);
                 System.out.println("Актер успешно заменен.");
-                System.out.println("Теперь " + newActor +
-                        "играет вместо " + oldActor + ".");
-            }
-        }
+                System.out.println("Теперь " + newActor.getName() + " " + newActor.getSurname() +
+                        " играет вместо " + actorToChange.getName() + " " + actorToChange.getSurname() + ".");
     }
 }
